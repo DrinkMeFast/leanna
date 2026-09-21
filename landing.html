@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lé Anna Company | Luxury Beauty Tirana</title>
+    <meta name="description" content="Tirana's premier destination for high-quality makeup, skincare, and Korean beauty products. Visit Lé Anna Company for a premium beauty experience.">
+    <meta name="theme-color" content="#093227">
+    <link rel="icon" type="image/png" href="images/brand/favicon.png">
+
+    <!-- Google Fonts: the logo's high-contrast serif for headings, a refined sans for body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        forest: '#093227',      /* leather green from the logo */
+                        deep: '#031e16',        /* darkest green */
+                        gold: '#e0b04a',        /* wordmark gold */
+                        goldlight: '#f0d48a',
+                        ivory: '#f6eedd',       /* text */
+                    },
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'serif'],
+                        sans: ['Jost', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- GSAP for smooth animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <style>
+        body {
+            background: #093227 url('images/brand/leather.jpg');
+            background-size: 640px auto;
+            color: rgba(246, 238, 221, 0.82);
+        }
+        .leather-band {
+            background: linear-gradient(rgba(3, 27, 20, 0.62), rgba(3, 27, 20, 0.62)), url('images/brand/leather.jpg');
+            background-size: auto, 640px auto;
+        }
+        .hairline { border-color: rgba(224, 176, 74, 0.28); }
+        .panel {
+            background: linear-gradient(180deg, rgba(255, 248, 230, 0.035), rgba(0, 0, 0, 0.06)), rgba(2, 22, 16, 0.42);
+            border: 1px solid rgba(224, 176, 74, 0.16);
+        }
+        .foil {
+            background: linear-gradient(115deg, #9c7026 0%, #d9a843 18%, #f6e3a3 38%, #e0b04a 55%, #b88630 76%, #efd07e 100%);
+            background-size: 220% 100%;
+            transition: background-position 0.9s ease, transform 0.4s ease;
+        }
+        .foil:hover { background-position: 100% 0; transform: translateY(-2px); }
+        .foil-text {
+            background: linear-gradient(100deg, #c99637 0%, #f3dc98 30%, #e0b04a 52%, #f0d48a 72%, #b8862f 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            padding-right: 0.08em;
+        }
+        .smooth-shadow { box-shadow: 0 34px 70px -30px rgba(0, 0, 0, 0.85); }
+        .card-frame { position: relative; }
+        .card-frame::after {
+            content: "";
+            position: absolute;
+            inset: 10px;
+            border: 1px solid rgba(246, 238, 221, 0.3);
+            pointer-events: none;
+            transition: all 0.6s ease;
+        }
+        .group:hover .card-frame::after { inset: 14px; border-color: rgba(224, 176, 74, 0.75); }
+        .hide-scroll::-webkit-scrollbar { display: none; }
+        ::selection { background: #e0b04a; color: #031e16; }
+    </style>
+</head>
+<body class="font-sans antialiased overflow-x-hidden">
+
+    <!-- Sticky Header -->
+    <header class="leather-band fixed w-full top-0 z-50 border-b hairline transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3" aria-label="Lé Anna Company">
+                <img src="images/brand/tree.png" alt="" class="h-12 w-auto">
+                <img src="images/brand/wordmark.png" alt="Lé Anna Company" class="h-10 w-auto">
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex space-x-10 text-xs font-medium uppercase tracking-[0.22em]">
+                <a href="#" class="text-gold">Home</a>
+                <a href="#shop" class="text-ivory/80 hover:text-gold transition-colors">Shop</a>
+                <a href="#about" class="text-ivory/80 hover:text-gold transition-colors">About</a>
+                <a href="#contact" class="text-ivory/80 hover:text-gold transition-colors">Contact</a>
+            </nav>
+
+            <!-- Cart & Mobile Menu -->
+            <div class="flex items-center space-x-6">
+                <!-- Search Icon (Placeholder) -->
+                <svg class="w-5 h-5 text-ivory/80 cursor-pointer hover:text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+
+                <!-- Cart Icon -->
+                <div class="relative cursor-pointer group" onclick="toggleCart()">
+                    <svg class="w-6 h-6 text-ivory/80 group-hover:text-gold transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                    <span id="cart-count" class="foil absolute -top-2 -right-2 text-deep text-[10px] font-semibold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                </div>
+
+                <!-- Mobile Hamburger -->
+                <button class="md:hidden text-gold" aria-label="Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-40 pb-24 lg:pt-48 lg:pb-32 overflow-hidden" style="background: radial-gradient(70% 90% at 50% 0%, rgba(255, 238, 196, 0.08), transparent 65%);">
+        <img src="images/brand/tree.png" alt="" aria-hidden="true" class="pointer-events-none absolute left-1/2 top-[55%] w-[760px] max-w-none -translate-x-1/2 -translate-y-1/2 opacity-[0.05]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center flex flex-col items-center">
+            <span class="gsap-hero inline-flex items-center gap-4 mb-8 text-gold text-xs font-medium uppercase tracking-[0.34em]">
+                <span class="w-10 h-px bg-gold/60"></span>Tirana &middot; Estd. 2020<span class="w-10 h-px bg-gold/60"></span>
+            </span>
+            <h1 class="gsap-hero font-serif font-medium text-5xl lg:text-7xl mb-6 text-ivory leading-tight">
+                Your Beauty, <br><span class="italic foil-text">Our Passion.</span>
+            </h1>
+            <p class="gsap-hero text-lg text-ivory/80 mb-10 max-w-xl mx-auto font-light">
+                Discover curated makeup, skincare, and Korean beauty essentials in the heart of Tirana. Elevate your daily routine with premium products.
+            </p>
+            <a href="#shop" class="gsap-hero foil inline-block text-deep px-10 py-4 text-xs font-medium uppercase tracking-[0.24em] shadow-lg shadow-black/40">
+                Shop Now
+            </a>
+        </div>
+    </section>
+
+    <!-- Highlights Bar -->
+    <div class="border-y hairline py-4" style="background: rgba(1, 16, 11, 0.5);">
+        <div class="max-w-7xl mx-auto px-4 flex flex-wrap justify-center gap-6 sm:gap-12 text-[11px] font-medium uppercase tracking-[0.2em] text-ivory/80">
+            <span class="flex items-center gap-2"><span class="text-gold">&#9733;</span> 4.8 Rating (125 Reviews)</span>
+            <span class="flex items-center gap-2"><span class="text-gold text-[8px]">&#9670;</span> In-Store Pickup</span>
+            <span class="flex items-center gap-2"><span class="text-gold text-[8px]">&#9670;</span> Delivery Available</span>
+            <span class="flex items-center gap-2"><span class="text-gold text-[8px]">&#9670;</span> Korean &amp; International Brands</span>
+        </div>
+    </div>
+
+    <!-- Featured Products (Shop Preview) -->
+    <section id="shop" class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="inline-flex items-center gap-4 mb-4 text-gold text-xs font-medium uppercase tracking-[0.34em]"><span class="w-8 h-px bg-gold/60"></span>Our Collection<span class="w-8 h-px bg-gold/60"></span></span>
+                <h2 class="font-serif font-medium text-4xl md:text-5xl text-ivory mb-4">Trending <span class="italic text-gold">Essentials</span></h2>
+                <p class="text-ivory/70 max-w-2xl mx-auto">Handpicked favorites loved by our customers.</p>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Product Card 1 -->
+                <div class="group panel hover:-translate-y-2 transition-transform duration-500 hover:smooth-shadow">
+                    <div class="card-frame aspect-[4/5] overflow-hidden bg-deep">
+                        <img src="images/serum.svg" alt="Glow Serum" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" loading="lazy">
+                    </div>
+                    <div class="p-5 text-center">
+                        <p class="text-[10px] font-medium uppercase tracking-[0.28em] text-gold mb-1">Korean Skincare</p>
+                        <h3 class="font-serif text-2xl font-semibold text-ivory mb-3">Glow Serum</h3>
+                        <div class="flex justify-center items-center gap-4">
+                            <span class="font-medium tracking-wider text-goldlight">2,500 ALL</span>
+                            <button onclick="addToCart('Glow Serum', 2500)" class="w-9 h-9 rounded-full border hairline text-gold hover:bg-gold hover:text-deep transition-colors flex items-center justify-center" aria-label="Add Glow Serum to cart">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="group panel hover:-translate-y-2 transition-transform duration-500 hover:smooth-shadow">
+                    <div class="card-frame aspect-[4/5] overflow-hidden bg-deep">
+                        <img src="images/lipstick-set.svg" alt="Matte Lip Tint" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" loading="lazy">
+                    </div>
+                    <div class="p-5 text-center">
+                        <p class="text-[10px] font-medium uppercase tracking-[0.28em] text-gold mb-1">Makeup</p>
+                        <h3 class="font-serif text-2xl font-semibold text-ivory mb-3">Matte Lip Tint</h3>
+                        <div class="flex justify-center items-center gap-4">
+                            <span class="font-medium tracking-wider text-goldlight">1,800 ALL</span>
+                            <button onclick="addToCart('Matte Lip Tint', 1800)" class="w-9 h-9 rounded-full border hairline text-gold hover:bg-gold hover:text-deep transition-colors flex items-center justify-center" aria-label="Add Matte Lip Tint to cart">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add more product cards as needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="about" class="py-24 border-y hairline" style="background: rgba(1, 18, 12, 0.4);">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-serif font-medium text-4xl md:text-5xl text-center text-ivory mb-16">Loved by Our <span class="italic text-gold">Community</span></h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="panel p-8 text-center">
+                    <div class="text-gold tracking-[0.3em] mb-5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="font-serif text-xl italic text-ivory mb-6">"Fantastic product's! Found a solution for my hair and stopped my hair loss."</p>
+                    <p class="text-[11px] font-medium uppercase tracking-[0.24em] text-gold">&mdash; Verified Customer</p>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="panel p-8 text-center">
+                    <div class="text-gold tracking-[0.3em] mb-5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="font-serif text-xl italic text-ivory mb-6">"Super kind staff who help with your shopping. Great range from Korean cosmetics to daily-use makeup. Highly recommend for makeup while visiting Tirana."</p>
+                    <p class="text-[11px] font-medium uppercase tracking-[0.24em] text-gold">&mdash; Verified Customer</p>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="panel p-8 text-center">
+                    <div class="text-gold tracking-[0.3em] mb-5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="font-serif text-xl italic text-ivory mb-6">"Professional makeup selection at Lé Anna."</p>
+                    <p class="text-[11px] font-medium uppercase tracking-[0.24em] text-gold">&mdash; Verified Customer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="leather-band pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+
+            <div>
+                <a href="#" class="inline-block mb-6"><img src="images/brand/logo-lockup.png" alt="Lé Anna Company, established 2020" class="w-48 h-auto"></a>
+                <p class="text-ivory/70 text-sm max-w-xs">Your trusted Tirana beauty store known for quality products and friendly, knowledgeable staff.</p>
+            </div>
+
+            <div>
+                <h4 class="text-xs font-medium uppercase tracking-[0.28em] text-gold mb-6">Visit Us</h4>
+                <p class="text-ivory/70 text-sm mb-2">Hasim Vokshi, Rruga Reshit Petrela</p>
+                <p class="text-ivory/70 text-sm mb-2">Tiranë, Albania</p>
+                <a href="#" class="text-gold hover:text-goldlight text-sm underline underline-offset-4 mt-2 inline-block">Get Directions</a>
+            </div>
+
+            <div>
+                <h4 class="text-xs font-medium uppercase tracking-[0.28em] text-gold mb-6">Contact &amp; Hours</h4>
+                <p class="text-ivory/70 text-sm mb-2">Phone: <a href="tel:+355682010789" class="hover:text-gold">+355 68 201 0789</a></p>
+                <p class="text-ivory/70 text-sm mb-4">Open Daily &middot; 9:00 AM &ndash; 9:00 PM</p>
+                <div class="flex space-x-4">
+                    <!-- Facebook Placeholder -->
+                    <a href="#" class="w-10 h-10 rounded-full border hairline flex items-center justify-center text-gold hover:bg-gold hover:text-deep transition-colors" aria-label="Facebook">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 text-center text-ivory/50 text-xs uppercase tracking-[0.18em] border-t hairline pt-8">
+            &copy; 2026 Lé Anna Company. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // GSAP Animations
+        document.addEventListener("DOMContentLoaded", (event) => {
+            gsap.from(".gsap-hero", {
+                y: 30,
+                opacity: 0,
+                duration: 1,
+                stagger: 0.2,
+                ease: "power3.out",
+                delay: 0.2
+            });
+        });
+
+        // Basic Cart Logic Array
+        let cart = [];
+
+        function addToCart(productName, price) {
+            cart.push({ name: productName, price: price });
+            updateCartUI();
+
+            // Small pop animation on the cart badge
+            gsap.fromTo("#cart-count",
+                { scale: 1.5 },
+                { scale: 1, duration: 0.3, ease: "back.out(1.7)" }
+            );
+        }
+
+        function updateCartUI() {
+            document.getElementById('cart-count').innerText = cart.length;
+        }
+
+        function toggleCart() {
+            if(cart.length === 0) {
+                alert("Your cart is beautifully empty.");
+            } else {
+                let total = cart.reduce((sum, item) => sum + item.price, 0);
+                alert(`You have ${cart.length} items in your cart. Subtotal: ${total} ALL.\n\n(Checkout flow to be integrated)`);
+            }
+        }
+    </script>
+</body>
+</html>

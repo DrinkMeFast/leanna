@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lé Anna Company - Trusted beauty house in Tirana, Albania. Shop Korean beauty products, professional makeup, and quality skincare.">
+    <meta name="theme-color" content="#093227">
+    <title>Lé Anna Company | Luxury Beauty &amp; Care in Tirana</title>
+    <link rel="icon" type="image/png" href="images/brand/favicon.png">
+    <link rel="apple-touch-icon" href="images/brand/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+    <div class="announcement-bar">
+        <div class="container announcement-inner">
+            <span>Free delivery on orders over 100 L</span>
+            <span class="announcement-sep" aria-hidden="true">&#9670;</span>
+            <span>Authentic Korean &amp; international beauty</span>
+            <span class="announcement-sep" aria-hidden="true">&#9670;</span>
+            <span>Rruga Reshit Petrela, Tirana</span>
+        </div>
+    </div>
+
+    <header class="header" id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo" aria-label="Lé Anna Company home">
+                <img src="images/brand/tree.png" alt="" class="logo-emblem" width="374" height="336">
+                <img src="images/brand/wordmark.png" alt="Lé Anna Company" class="logo-wordmark" width="671" height="255">
+            </a>
+            <nav class="nav" id="nav" aria-label="Main">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link active">Home</a></li>
+                    <li><a href="shop.html" class="nav-link">Shop</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="reviews.html" class="nav-link">Reviews</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="search-box">
+                    <input type="text" placeholder="Search products..." id="searchInput" aria-label="Search products">
+                    <button class="search-btn" aria-label="Search"><i class="fas fa-search"></i></button>
+                </div>
+                <a href="wishlist.html" class="header-action-btn wishlist-btn" title="Wishlist">
+                    <i class="far fa-heart"></i>
+                    <span class="wishlist-count" id="wishlistCount">0</span>
+                </a>
+                <a href="cart.html" class="cart-icon" title="Shopping Cart">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+                <div class="account-wrapper">
+                    <a href="account.html" class="header-action-btn account-btn" id="accountBtn" title="My Account">
+                        <i class="far fa-user"></i>
+                    </a>
+                    <div class="account-dropdown">
+                        <a href="account.html">Login</a>
+                        <a href="account.html?action=register">Register</a>
+                        <div class="divider"></div>
+                        <a href="wishlist.html">Wishlist</a>
+                    </div>
+                </div>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <h1 class="sr-only">Lé Anna Company &mdash; Luxury Beauty &amp; Care in Tirana</h1>
+
+        <!-- Hero Slider Section -->
+        <section class="hero-slider" aria-label="Featured collections">
+            <img src="images/brand/tree.png" alt="" class="hero-watermark" aria-hidden="true">
+            <div class="slider-container">
+                <div class="slide active">
+                    <div class="slide-content">
+                        <span class="hero-badge">Summer Sale &mdash; Up to 50% Off</span>
+                        <h2 class="hero-title">Mbrojtje<br><em>Maksimale</em></h2>
+                        <p class="hero-subtitle">Protect your skin with our premium sunscreen collection. Back in stock and better than ever.</p>
+                        <div class="hero-buttons">
+                            <a href="shop.html" class="btn btn-primary">Bli Tani</a>
+                        </div>
+                    </div>
+                    <div class="slide-image">
+                        <img src="images/hero-sunscreen.svg" alt="Sunscreen collection on beach" style="object-position: 88% center;">
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="slide-content">
+                        <span class="hero-badge">New Arrivals</span>
+                        <h2 class="hero-title">Korean<br><em>Skincare</em></h2>
+                        <p class="hero-subtitle">Discover our latest K-beauty lineup &mdash; hydrating serums, sheet masks, and glow-boosting essentials.</p>
+                        <div class="hero-buttons">
+                            <a href="shop.html?category=korean" class="btn btn-primary">Shop Korean Beauty</a>
+                        </div>
+                    </div>
+                    <div class="slide-image">
+                        <img src="images/hero-korean-skincare.svg" alt="Korean skincare collection" style="object-position: 46% center;">
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="slide-content">
+                        <span class="hero-badge">Trending Now</span>
+                        <h2 class="hero-title">Makeup<br><em>Essentials</em></h2>
+                        <p class="hero-subtitle">Palettes, lipsticks, and mascaras to complete every look. Free shipping on orders over 100 L.</p>
+                        <div class="hero-buttons">
+                            <a href="shop.html?category=makeup" class="btn btn-primary">Shop Makeup</a>
+                        </div>
+                    </div>
+                    <div class="slide-image">
+                        <img src="images/hero-makeup.svg" alt="Makeup collection" style="object-position: 8% center;">
+                    </div>
+                </div>
+            </div>
+            <div class="slider-controls">
+                <button class="prev-slide" aria-label="Previous slide"><i class="fas fa-chevron-left"></i></button>
+                <button class="next-slide" aria-label="Next slide"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="slider-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </section>
+
+        <!-- Brand Promise -->
+        <section class="features-strip" aria-label="Why shop with us">
+            <div class="container">
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="far fa-gem"></i></div>
+                        <div>
+                            <h3>100% Authentic</h3>
+                            <p>Genuine products from trusted brands</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-leaf"></i></div>
+                        <div>
+                            <h3>Korean Beauty</h3>
+                            <p>The latest K-beauty innovations</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-wand-magic-sparkles"></i></div>
+                        <div>
+                            <h3>Expert Advice</h3>
+                            <p>Personal consultations in store</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-truck-fast"></i></div>
+                        <div>
+                            <h3>Free Delivery</h3>
+                            <p>On orders over 100 L</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section class="products section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-subtitle">Our Collection</span>
+                    <h2 class="section-title">Featured <em>Products</em></h2>
+                </div>
+                <div class="products-grid" id="featuredProducts"></div>
+                <div class="text-center mt-40">
+                    <a href="shop.html" class="btn btn-primary">View All Products</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Preview -->
+        <section class="about-preview section bg-light">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-images reveal">
+                        <div class="arch-frame">
+                            <img src="images/about-store-main.svg" alt="Store interior" class="about-img-main" loading="lazy">
+                        </div>
+                        <div class="seal" aria-hidden="true">
+                            <svg viewBox="0 0 200 200">
+                                <defs>
+                                    <path id="sealPath" d="M100,100 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0"></path>
+                                </defs>
+                                <text><textPath href="#sealPath" xlink:href="#sealPath" textLength="500" lengthAdjust="spacing">LÉ ANNA COMPANY &middot; ESTD. 2020 &middot; TIRANA &middot;</textPath></text>
+                            </svg>
+                            <img src="images/brand/tree.png" alt="">
+                        </div>
+                    </div>
+                    <div class="about-content reveal" data-delay="1">
+                        <span class="section-subtitle">About Us</span>
+                        <h2 class="section-title">Your Trusted <em>Beauty Destination</em></h2>
+                        <p>Located in the heart of Tirana, we've built our reputation on quality products and expert knowledge.</p>
+                        <p>From innovative Korean skincare to professional makeup and hair care, every product on our shelves is authentic and chosen with care.</p>
+                        <div class="about-signature">Lé Anna Company &middot; Estd. 2020</div>
+                        <a href="about.html" class="btn btn-secondary">Our Story</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-subtitle">Kind Words</span>
+                    <h2 class="section-title">Loved by Our <em>Clients</em></h2>
+                    <div class="rating-summary">
+                        <span class="rating-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></span>
+                        <span class="rating-text">4.8 from 125 reviews</span>
+                    </div>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card reveal">
+                        <div class="testimonial-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="testimonial-text">&ldquo;Found a solution for my hair and stopped my hair loss. The staff really knows their stuff and helped me choose the right products.&rdquo;</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>Satisfied Customer</h4>
+                                <span>Tirana, Albania</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card reveal" data-delay="1">
+                        <div class="testimonial-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="testimonial-text">&ldquo;Super kind staff who help with your shopping. Great range from Korean cosmetics to daily-use makeup.&rdquo;</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>Beauty Enthusiast</h4>
+                                <span>International Visitor</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card reveal" data-delay="2">
+                        <div class="testimonial-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="testimonial-text">&ldquo;Finally found authentic Korean beauty products in Tirana! My skin has never looked better.&rdquo;</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>Skincare Addict</h4>
+                                <span>Tirana, Albania</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-40">
+                    <a href="reviews.html" class="btn btn-secondary">Read All Reviews</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo" aria-label="Lé Anna Company home">
+                        <img src="images/brand/logo-lockup.png" alt="Lé Anna Company, established 2020" width="803" height="636" loading="lazy">
+                    </a>
+                    <p>Your trusted beauty destination in Tirana, Albania &mdash; curated skincare, makeup and Korean beauty since 2020.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/classcosmetic/" target="_blank" rel="noopener" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/classcosmetic/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Explore</h3>
+                    <ul>
+                        <li><a href="shop.html">Shop All</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="reviews.html">Reviews</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Client Care</h3>
+                    <ul>
+                        <li><a href="account.html">My Account</a></li>
+                        <li><a href="wishlist.html">Wishlist</a></li>
+                        <li><a href="cart.html">Shopping Cart</a></li>
+                        <li><a href="checkout.html">Checkout</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h3>Visit Us</h3>
+                    <ul class="contact-list">
+                        <li><i class="fas fa-map-marker-alt"></i> Rruga Reshit Petrela, Tirana</li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+355682010789">+355 68 201 0789</a></li>
+                        <li><i class="fas fa-clock"></i> Mon-Sat: 8:00 AM - 8:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Lé Anna Company. All rights reserved.</p>
+                <p>Estd. 2020 &middot; Tirana, Albania</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Sticky Bottom Menu -->
+    <nav class="mobile-bottom-nav" aria-label="Quick navigation">
+        <div class="mobile-nav-container">
+            <a href="index.html" class="mobile-nav-item active">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="shop.html" class="mobile-nav-item">
+                <i class="fas fa-store"></i>
+                <span>Shop</span>
+            </a>
+            <a href="wishlist.html" class="mobile-nav-item wishlist-btn">
+                <i class="fas fa-heart"></i>
+                <span>Wishlist</span>
+            </a>
+            <a href="cart.html" class="mobile-nav-item">
+                <i class="fas fa-shopping-bag"></i>
+                <span>Cart</span>
+                <span class="cart-count">0</span>
+            </a>
+            <a href="account.html" class="mobile-nav-item account-btn">
+                <i class="fas fa-user"></i>
+                <span>Account</span>
+            </a>
+        </div>
+    </nav>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
